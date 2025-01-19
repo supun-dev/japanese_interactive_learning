@@ -1,4 +1,4 @@
-from flask import Flask, json
+from flask import Flask, json, jsonify
 
 from service.RestService import get_records_by_english_word
 
@@ -7,4 +7,4 @@ api = Flask(__name__)
 
 @api.route('/searchWordByEnglishMeaning/<english_word>', methods=['POST'])
 def search_word_by_english_meaning(english_word):
-    return get_records_by_english_word(english_word)
+    return jsonify(get_records_by_english_word(english_word))
