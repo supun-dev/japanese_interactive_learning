@@ -10,12 +10,12 @@ def get_records_by_english_word(english_word):
 
 def handle_response_for_english_word(records, english_word):
     if not records:
-        return handle_no_records(english_word), 404
+        return handle_no_records(english_word)
     entries = []
     for record in records:
         entry = DictionaryRecord(record[0], record[1], record[2])
         entries.append(entry.to_dict())
-    return entries, 200
+    return entries
 
 
 def handle_no_records(english_word):
